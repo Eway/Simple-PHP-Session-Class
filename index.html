@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Simple-php-session-class : Simple class that allows you to get and set data from the current session" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Simple-php-session-class</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/gianbalex/Simple-PHP-Session-Class">View on GitHub</a>
+
+          <h1 id="project_title">Simple-php-session-class</h1>
+          <h2 id="project_tagline">Simple class that allows you to get and set data from the current session</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/gianbalex/Simple-PHP-Session-Class/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/gianbalex/Simple-PHP-Session-Class/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>Simple PHP Session Class</h3>
+
+<h3>Usage:</h3>
+
+<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="c1">// start session</span>
+<span class="nb">session_start</span><span class="p">();</span>
+
+<span class="c1">// include the class</span>
+<span class="k">require_once</span><span class="p">(</span><span class="s2">"Session.php"</span><span class="p">);</span>
+
+<span class="nv">$userData</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"name"</span>  <span class="o">=&gt;</span> <span class="s2">"John"</span><span class="p">,</span>
+    <span class="s2">"age"</span>   <span class="o">=&gt;</span> <span class="mi">26</span><span class="p">,</span>
+    <span class="s2">"pets"</span>  <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s2">"dog"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s2">"name"</span>  <span class="o">=&gt;</span> <span class="s2">"Bobby"</span><span class="p">,</span>
+            <span class="s2">"age"</span>   <span class="o">=&gt;</span> <span class="mi">1</span>
+        <span class="p">),</span>
+        <span class="s2">"cat"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s2">"name"</span>  <span class="o">=&gt;</span> <span class="s2">"Lia"</span><span class="p">,</span>
+            <span class="s2">"age"</span>   <span class="o">=&gt;</span> <span class="mi">2</span>
+        <span class="p">),</span>      
+    <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// set user data</span>
+<span class="nx">Session</span><span class="o">::</span><span class="na">set</span><span class="p">(</span><span class="s2">"user"</span><span class="p">,</span> <span class="nv">$userData</span><span class="p">);</span>
+
+<span class="c1">// get data from session</span>
+<span class="nv">$userName</span> <span class="o">=</span> <span class="nx">Session</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s2">"user.name"</span><span class="p">);</span>
+<span class="nv">$dogName</span> <span class="o">=</span> <span class="nx">Session</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s2">"user.pets.dog.name"</span><span class="p">);</span>
+<span class="nv">$catName</span> <span class="o">=</span> <span class="nx">Session</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s2">"user.pets.cat.name"</span><span class="p">);</span>
+
+<span class="c1">// get array data from session</span>
+<span class="nv">$pets</span> <span class="o">=</span> <span class="nx">Session</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s2">"user.pets"</span><span class="p">);</span>
+
+
+<span class="c1">// display data</span>
+<span class="k">echo</span> <span class="nv">$userName</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$dogName</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$catName</span><span class="p">;</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$pets</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+<h3>Return:</h3>
+
+<div class="highlight"><pre><span class="nx">John</span>
+<span class="nx">Bobby</span>
+<span class="nx">Lia</span>
+<span class="k">Array</span><span class="p">(</span>
+        <span class="s2">"dog"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s2">"name"</span>  <span class="o">=&gt;</span> <span class="s2">"Bobby"</span><span class="p">,</span>
+            <span class="s2">"age"</span>   <span class="o">=&gt;</span> <span class="mi">1</span>
+        <span class="p">),</span>
+        <span class="s2">"cat"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s2">"name"</span>  <span class="o">=&gt;</span> <span class="s2">"Lia"</span><span class="p">,</span>
+            <span class="s2">"age"</span>   <span class="o">=&gt;</span> <span class="mi">2</span>
+        <span class="p">),</span>      
+    <span class="p">)</span>
+</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Simple-php-session-class maintained by <a href="https://github.com/gianbalex">gianbalex</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
