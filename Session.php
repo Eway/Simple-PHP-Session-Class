@@ -4,7 +4,7 @@
 * Simple class that allows you to get and set data from the current session
 *
 * @author     Gianfilippo Balestriero <gianbalexdev@gmail.com>
-* @link       http://github.com/gianbalexdev/dinamic_session_class
+* @link       https://github.com/gianbalex/Simple-PHP-Session-Class
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by

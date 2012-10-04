@@ -28,7 +28,7 @@ echo "
 * Simple class that allows you to get and set data from the current session
 *
 * @author     Gianfilippo Balestriero <gianbalexdev@gmail.com>
-* @link       http://github.com/gianbalexdev/simple_php_session_class
+* @link       https://github.com/gianbalex/Simple-PHP-Session-Class
 *
 *
 \n
